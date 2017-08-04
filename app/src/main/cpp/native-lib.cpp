@@ -161,6 +161,18 @@ JNIEXPORT jstring JNICALL Java_io_agrora_rtc_MainActivity_stringFromJNI(JNIEnv *
     return env->NewStringUTF(hello.c_str());
 }
 
+jint JNI_OnLoad(JavaVM* vm, void* reserved) {
+    JNIEnv *env;
+    if (vm->GetEnv((void **) &env, JNI_VERSION_1_6) != JNI_OK) {
+        return JNI_ERR;
+    }
+
+    return JNI_VERSION_1_6;
+}
+
+void JNI_OnUnload(JavaVM* vm, void* reserved) {
+}
+
 #ifdef __cplusplus
 }
 #endif
