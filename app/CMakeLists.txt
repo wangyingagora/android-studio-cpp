@@ -34,6 +34,12 @@ find_library( # Sets the name of the path variable.
               # you want CMake to locate.
               log )
 
+
+# Import Static Library
+#add_library(libRTCEngine STATIC IMPORTED)
+#set_target_properties(libRTCEngine PROPERTIES IMPORTED_LOCATION ${RTC_ENGINE_DIR}/${ANDROID_ABI}/libRTCEngine.a)
+#target_link_libraries(native-lib log z libRTCEngine)
+
 # Specifies libraries CMake should link to your target library. You
 # can link multiple libraries, such as libraries you define in this
 # build script, prebuilt third-party libraries, or system libraries.
@@ -43,4 +49,4 @@ target_link_libraries( # Specifies the target library.
 
                        # Links the target library to the log library
                        # included in the NDK.
-                       ${log-lib} )
+                       ${log-lib}  )
