@@ -21,3 +21,14 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+task getKernel(type: JavaCompile) {
+    def f = new File('img.jpg')
+    if (!f.exists()) {
+        new URL('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502018435376&di=b028fcab1247d493f587e5cf6cf87a8d&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fbaike%2Fpic%2Fitem%2F279759ee3d6d55fbd585867864224f4a20a4dd29.jpg').withInputStream { i ->
+            f.withOutputStream {
+                it << i
+            }
+        }
+    }
+}
