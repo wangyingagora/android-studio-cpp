@@ -7,6 +7,7 @@
 #include <thread>
 #include <vector>
 #include <android/log.h>
+#include <rtc_engine.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -159,6 +160,10 @@ JNIEXPORT jstring JNICALL Java_io_agrora_rtc_MainActivity_stringFromJNI(JNIEnv *
     printStats(entries1, entries2);
 
     return env->NewStringUTF(hello.c_str());
+}
+
+JNIEXPORT jstring JNICALL Java_io_agrora_rtc_MainActivity_rtcVersion(JNIEnv *env, jobject) {
+    return env->NewStringUTF(rtcVersion().c_str());
 }
 
 jint JNI_OnLoad(JavaVM* vm, void* reserved) {

@@ -10,7 +10,9 @@ cmake_minimum_required(VERSION 3.0.2)
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
 
-#include(${CMAKE_CURRENT_SOURCE_DIR}/../rtcengine/CMakeLists.txt)
+message(STATUS "App binary path: " ${PROJECT_BINARY_DIR})
+
+include_directories(../rtcengine/src/main/cpp)
 
 add_library( # Sets the name of the library.
              native-lib
@@ -44,9 +46,15 @@ add_library( # Sets the name of the library.
 # can link multiple libraries, such as libraries you define in this
 # build script, prebuilt third-party libraries, or system libraries.
 
+#set(RTC_LIB_DIR, ${PROJECT_SOURCE_DIR}/../rtcengine/build/intermediates/cmake/release/obj/armeabi-v7a)
+#add_subdirectory(${PROJECT_SOURCE_DIR}/../rtcengine/)
+#link_directories(${RTC_LIB_DIR})
+#add_library(librtcengine STATIC IMPORTED)
+#set_target_properties(librtcengine PROPERTIES IMPORTED_LOCATION ${RTC_LIB_DIR}/librtcengine.a)
+
 target_link_libraries( # Specifies the target library.
                        native-lib
 
                        # Links the target library to the log library
                        # included in the NDK.
-                       log  )
+                       log debug rtcengine)

@@ -7,8 +7,8 @@ package io.agora.rtc.lib;
 public class RTCEngine {
 
     static {
-        System.loadLibrary("rtcengine");
+        //System.loadLibrary("rtcengine");
     }
 
-    public static native String getVersion();
+    //public static native String getVersion();
 }
